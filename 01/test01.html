@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test01</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script src="../js/jquery-1.11.2.min.js"></script>
+	<style>
+        @media screen and (orientation: portrait) {
+            /*竖屏 css*/
+            .container{
+                width: 100%;
+            }
+        }
+        @media screen and (orientation: landscape) {
+            /*横屏 css*/
+            .container{
+                width: 32%;
+            }
+        }
+        html,body{
+        height:100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        overflow: hidden;
+    }
+	*, *:before, *:after {
+        box-sizing: inherit;
+	}
+	.container {
+        /*width: 100%;*/
+        height: 100%;
+        margin: 0 auto;
+        padding: 0;
+        overflow: hidden;
+    }
+    .mpage {
+        position: absolute;
+        /*width: 100%;*/
+        width: inherit;
+        height: 100%;
+        overflow: hidden;
+    }
+    #mpage0{
+        /*margin-left: 50%;*/
+        /*background:url(img/2_320_449.jpg) no-repeat;*/
+        /*background:url(img/3_720_1280.jpg) no-repeat;*/
+        background:url(img/3_320_568.jpg) no-repeat;
+        -moz-background-size:63px 100px; /* 老版本的 Firefox */
+        /*background-size:320px 504px;*/
+        /*background-size:100% 100%;*/
+        background-size:cover;
+        /*display: none;*/
+        z-index: 3;
+    }
+    #mpage1{
+        /*margin-top: 100%;*/
+        background: tan;
+        display: none;
+        z-index: 2;
+    }
+    #mpage2{
+        /*margin-bottom: 70%;*/
+        background: cornflowerblue;
+        display: none;
+        z-index: 1;
+    }
+    .leafdemobox{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        /*border: 1px dashed darkred;*/
+    }
+    img{
+        /*float: left;*/
+        display: block;
+        width: 50%;
+        height: 50%;
+
+    }
+    #gogo{
+        width: 30%;
+        height: 60px;
+        margin: 100px auto;
+        background: fuchsia;
+        z-index: 100;
+    }
+        #musiccontrol{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            /*background-color: aqua;*/
+            top: 10%;
+            right: 10%;
+            z-index: 10;
+        }
+        .musicicon{
+            width: 100%;
+            height: 100%;
+        }
+
+	</style>
+    <style id="laterstyle"></style>
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="mpage" id="mpage0"></div>
+    <div class="mpage" id="mpage1">
+        <div id="gogo"><a href="http://www.baidu.com" id="linka">baidu</a></div>
+    </div>
+    <div class="mpage" id="mpage2"></div>
+</div>
+
+<div id="musiccontrol"><img class="musicicon" src="img/music83.png"></div>
+<audio id="bgmusic" src="http://www.w3school.com.cn/i/song.mp3" autoplay preload loop ></audio>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+    });
+
+    document.getElementById("musiccontrol").addEventListener('touchend', function(){
+        var myVideo=document.getElementById("bgmusic");
+        if (myVideo.paused){
+            myVideo.play();
+        }
+        else{
+            myVideo.pause();
+        }
+    }, false);
+
+
+    function autoPlayAudio1() {
+        wx.config({
+            // 配置信息, 即使不正确也能使用 wx.ready
+            debug: false,
+            appId: '',
+            timestamp: 1,
+            nonceStr: '',
+            signature: '',
+            jsApiList: []
+        });
+        wx.ready(function() {
+            document.getElementById('bgmusic').play();
+        });
+    }
+
+    autoPlayAudio1();
+</script>
+<script src="js/slideframe.js"></script>
+<script src="js/leafall.js"></script>
+</body>
+
+</html>

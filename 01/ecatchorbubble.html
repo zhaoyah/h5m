@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>ecatchorbubble-测试事件的捕获和冒泡</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+        }
+        .outer{
+            width: 50%;
+            height: 50%;
+            margin: 0 auto;
+            background: red;
+        }
+        .inner{
+            width: 50%;
+            height: 50%;
+            margin: 0 auto;
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container" id="container">
+    <div class="outer" id="outer">
+        <div class="inner" id="inner">
+            <a href="http://www.baidu.com">baidu</a>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+
+    document.getElementsByClassName("container")[0].addEventListener('touchstart', function(evt){
+        //这里可以阻止click事件
+        evt.preventDefault();
+        console.log("-------start--------");
+    }, false);
+    document.getElementsByClassName("container")[0].addEventListener('touchmove', function(evt){
+        console.log("-------move--------");
+    }, false);
+    document.getElementsByClassName("container")[0].addEventListener('touchend', function(evt){
+        console.log("-------end--------");
+    }, false);
+    document.getElementById('container').addEventListener("click",function(evt){
+        //这里可以阻止<a>标签
+        evt.preventDefault();
+        console.log("hahhah");
+//        alert("i am container");
+
+    },false);
+    document.getElementById('inner').addEventListener("click",function(){
+        console.log("inner");
+//        alert("i am container");
+
+    },false);
+//    document.getElementsByClassName("container")[0].addEventListener('touchmove', touchSatrtFunc, false);
+//    document.getElementsByClassName("container")[0].addEventListener('touchend', touchSatrtFunc, false);
+</script>
+</html>
