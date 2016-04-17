@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="myaly">
+    <serverData>
+      <paths name="myaly">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/alidata/www/funchl/weixin/h5m" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
